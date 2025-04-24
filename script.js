@@ -60,12 +60,17 @@ const quizData = [
       wrap.classList.add('choice-wrapper');
 
       btn.addEventListener('click', () => {
+        // if correct, increment score
+        if (c.correct) {
+          score++;
+        }
         // highlight all
         q.choices.forEach((opt, j) => {
           const w = choicesDiv.children[j];
           w.classList.toggle('correct-answer', opt.correct);
           w.classList.toggle('wrong-answer', !opt.correct);
         });
+        updateStatus();
         // disable answers only
         choicesDiv.querySelectorAll('.answer-btn').forEach(b=>b.disabled=true);
       });

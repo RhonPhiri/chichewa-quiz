@@ -98,7 +98,7 @@ nextBtn.addEventListener('click', () => {
     currentIndex++;
     loadQuestion(currentIndex);
   } else {
-    feedbackEl.textContent = 'Quiz complete!';
+    feedbackEl.textContent = 'Quiz complete!🔥';
     nextBtn.disabled = true;
 
     const restartBtn = document.createElement('button');

@@ -58,3 +58,11 @@ body {
     margin-top: 1rem;
     width: 100%;
   }
+
+  /* New classes for answer highlighting */
+  .correct-answer {
+    background-color: #d4edda; /* light green */
+  }
+  .wrong-answer {
+    background-color: #f8d7da; /* light red */
+  }

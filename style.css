@@ -9,17 +9,17 @@ body {
   }
   .quiz-container {
     background: #fff;
-    max-width: 400px;
     width: 100%;
+    max-width: 400px;
+    padding: 1.5rem;
     border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 1.5rem;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   }
   .quiz-container h1 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
     text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
   }
   #status-bar {
     display: flex;
@@ -34,9 +34,8 @@ body {
     margin-bottom: 0.5rem;
   }
   button {
-    display: inline-block;
-    margin: 0.5rem 0;
     padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -51,18 +50,9 @@ body {
   #choices button + button { margin-left: 0.5rem; }
   #feedback {
     margin-top: 1rem;
-    font-weight: bold;
     min-height: 1.2em;
+    font-weight: bold;
   }
-  #next-question {
-    margin-top: 1rem;
-    width: 100%;
-  }
-
-  /* New classes for answer highlighting */
-  .correct-answer {
-    background-color: #d4edda; /* light green */
-  }
-  .wrong-answer {
-    background-color: #f8d7da; /* light red */
-  }
+  #next-question { width: 100%; margin-top: 1rem; }
+  .correct-answer { background-color: #d4edda; }
+  .wrong-answer   { background-color: #f8d7da; }

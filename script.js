@@ -1,12 +1,12 @@
-// 1. Define an array of questions with text, audio, and choices
+// --- Quiz data: add your own questions/audio here
 const quizData = [
     {
       text: 'How do you say "Thank you" in Chichewa?',
       questionAudio: 'audio/q1.mp3',
       choices: [
-        { text: 'Zikomo', audio: 'audio/a1.mp3', correct: true },
-        { text: 'Moni', audio: 'audio/a2.mp3', correct: false },
-        { text: 'Pepani', audio: 'audio/a3.mp3', correct: false },
+        { text: 'Zikomo',    audio: 'audio/a1.mp3', correct: true },
+        { text: 'Moni',      audio: 'audio/a2.mp3', correct: false },
+        { text: 'Pepani',    audio: 'audio/a3.mp3', correct: false },
         { text: 'Muli bwanji?', audio: 'audio/a4.mp3', correct: false }
       ]
     },
@@ -14,98 +14,75 @@ const quizData = [
       text: 'How do you greet someone in the morning?',
       questionAudio: 'audio/q2.mp3',
       choices: [
-        { text: 'Muli bwanji?', audio: 'audio/b1.mp3', correct: false },
-        { text: 'Moni', audio: 'audio/b2.mp3', correct: true },
-        { text: 'Zikomo', audio: 'audio/b3.mp3', correct: false },
-        { text: 'Pepani', audio: 'audio/b4.mp3', correct: false }
+        { text: 'Moni',      audio: 'audio/b1.mp3', correct: true },
+        { text: 'Zikomo',    audio: 'audio/b2.mp3', correct: false },
+        { text: 'Pepani',    audio: 'audio/b3.mp3', correct: false },
+        { text: 'Muli bwanji?', audio: 'audio/b4.mp3', correct: false }
       ]
     }
-    // add more questions here
   ];
 
   let currentIndex = 0;
   let score = 0;
+  // DOM refs
+  const playQBtn   = document.getElementById('play-question');
+  const audioQ     = document.getElementById('audio-question');
+  const questionEl = document.getElementById('question-text');
+  const choicesDiv = document.getElementById('choices');
+  const feedbackEl = document.getElementById('feedback');
+  const nextBtn    = document.getElementById('next-question');
+  const progTxt    = document.getElementById('progress-text');
+  const scoreTxt   = document.getElementById('score-text');
 
-  // DOM elements
-  const playQBtn    = document.getElementById('play-question');
-  const audioQ      = document.getElementById('audio-question');
-  const questionEl  = document.getElementById('question-text');
-  const choicesDiv  = document.getElementById('choices');
-  const feedbackDiv = document.getElementById('feedback');
-  const nextBtn     = document.getElementById('next-question');
-  const progressTxt = document.getElementById('progress-text');
-  const scoreTxt    = document.getElementById('score-text');
-
-  // Update status bar
+  // Update progress & score display
   function updateStatus() {
-    progressTxt.textContent = `Question ${currentIndex + 1} of ${quizData.length}`;
+    progTxt.textContent = `Question ${currentIndex+1} of ${quizData.length}`;
     scoreTxt.textContent = `Score: ${score}`;
   }
 
-  // Load a question by index
-  function loadQuestion(index) {
+  // Render a question
+  function loadQuestion(i) {
     updateStatus();
-    const q = quizData[index];
-
-    // set question text & audio
+    const q = quizData[i];
     questionEl.textContent = q.text;
     audioQ.src = q.questionAudio;
-    feedbackDiv.textContent = '';
+    feedbackEl.textContent = '';
     choicesDiv.innerHTML = '';
 
-    // render choices
-    q.choices.forEach((choice, idx) => {
+    q.choices.forEach((c, idx) => {
+      // answer button
       const btn = document.createElement('button');
-      btn.textContent = choice.text;
+      btn.textContent = c.text;
+      btn.classList.add('answer-btn');
 
-      // container for styling
-      const wrapper = document.createElement('div');
-      wrapper.classList.add('choice-wrapper');
+      // container wrapper
+      const wrap = document.createElement('div');
+      wrap.classList.add('choice-wrapper');
 
       btn.addEventListener('click', () => {
-        // highlight correct and wrong
-        q.choices.forEach((c, i) => {
-          const w = choicesDiv.children[i];
-          w.classList.remove('correct-answer', 'wrong-answer');
-          if (c.correct) w.classList.add('correct-answer');
-          else w.classList.add('wrong-answer');
+        // highlight all
+        q.choices.forEach((opt, j) => {
+          const w = choicesDiv.children[j];
+          w.classList.toggle('correct-answer', opt.correct);
+          w.classList.toggle('wrong-answer', !opt.correct);
         });
-        // disable all buttons
-        Array.from(choicesDiv.querySelectorAll('button')).forEach(b => b.disabled = true);
+        // disable answers only
+        choicesDiv.querySelectorAll('.answer-btn').forEach(b=>b.disabled=true);
       });
 
-      // answer audio button
+      // audio play button
       const playA = document.createElement('button');
       playA.textContent = '🔊';
-      playA.addEventListener('click', e => {
-        e.stopPropagation();
-        new Audio(choice.audio).play();
-      });
+      playA.addEventListener('click', e => { e.stopPropagation(); new Audio(c.audio).play(); });
 
-      wrapper.appendChild(btn);
-      wrapper.appendChild(playA);
-      choicesDiv.appendChild(wrapper);
+      wrap.appendChild(btn);
+      wrap.appendChild(playA);
+      choicesDiv.appendChild(wrap);
     });
+  }
 
-      // answer audio button
-      const playA = document.createElement('button');
-      playA.textContent = '🔊';
-      playA.addEventListener('click', e => {
-        e.stopPropagation();
-        new Audio(choice.audio).play();
-      });
-
-      const wrapper = document.createElement('div');
-      wrapper.appendChild(btn);
-      wrapper.appendChild(playA);
-      choicesDiv.appendChild(wrapper);
-    }
-
-
-  // initial display
+  // Initial load & event hooks
   loadQuestion(currentIndex);
-
-  // event listeners
   playQBtn.addEventListener('click', () => audioQ.play());
   nextBtn.addEventListener('click', () => {
     currentIndex = (currentIndex + 1) % quizData.length;

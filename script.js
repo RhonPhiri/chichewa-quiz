@@ -53,11 +53,10 @@ const quizData = [
     feedbackDiv.textContent = '';
     choicesDiv.innerHTML = '';
 
-      // render choices
+    // render choices
     q.choices.forEach((choice, idx) => {
       const btn = document.createElement('button');
       btn.textContent = choice.text;
-      btn.classList.add('answer-btn');  // mark answer buttons
 
       // container for styling
       const wrapper = document.createElement('div');
@@ -71,8 +70,8 @@ const quizData = [
           if (c.correct) w.classList.add('correct-answer');
           else w.classList.add('wrong-answer');
         });
-        // disable only the answer buttons, leaving audio play buttons active
-        Array.from(choicesDiv.querySelectorAll('.answer-btn')).forEach(b => b.disabled = true);
+        // disable all buttons
+        Array.from(choicesDiv.querySelectorAll('button')).forEach(b => b.disabled = true);
       });
 
       // answer audio button
@@ -88,6 +87,21 @@ const quizData = [
       choicesDiv.appendChild(wrapper);
     });
 
+      // answer audio button
+      const playA = document.createElement('button');
+      playA.textContent = '🔊';
+      playA.addEventListener('click', e => {
+        e.stopPropagation();
+        new Audio(choice.audio).play();
+      });
+
+      const wrapper = document.createElement('div');
+      wrapper.appendChild(btn);
+      wrapper.appendChild(playA);
+      choicesDiv.appendChild(wrapper);
+    }
+
+
   // initial display
   loadQuestion(currentIndex);
 
@@ -96,4 +110,4 @@ const quizData = [
   nextBtn.addEventListener('click', () => {
     currentIndex = (currentIndex + 1) % quizData.length;
     loadQuestion(currentIndex);
-  })}
+  });

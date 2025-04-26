@@ -4,20 +4,20 @@ const quizData = [
     text: 'How do you say “Hello” in Chichewa?',
     questionAudio: '',
     choices: [
-      { text: 'Zikomo',    audio: 'audio/a1.mp3', correct: false },
-      { text: 'Moni',      audio: 'audio/a2.mp3', correct: true },
-      { text: 'Pepani',    audio: 'audio/a3.mp3', correct: false },
-      { text: 'Muli bwanji?', audio: 'audio/a4.mp3', correct: false }
+      { text: 'Zikomo',    audio: 'audios/zikomo.mp3', correct: false },
+      { text: 'Moni',      audio: 'audios/moni.mp3', correct: true },
+      { text: 'Pepani',    audio: 'audios/pepani.mp3', correct: false },
+      { text: 'Muli bwanji?', audio: 'audios/muli_bwanji.mp3', correct: false }
     ]
   },
   {
     text: 'When would you use “Bo bo”?',
-    questionAudio: 'audio/q2.mp3',
+    questionAudio: 'audios/bobo.mp3',
     choices: [
       { text: 'Informal greeting to children',      audio: '', correct: true },
       { text: 'Informal greeting to adults',    audio: '', correct: false },
       { text: 'Formal greeting to children',    audio: '', correct: false },
-      { text: 'Informal greeting to adults', audio: '', correct: false }
+      { text: 'Formal greeting to adults', audio: '', correct: false }
     ]
   },
 
@@ -25,16 +25,16 @@ const quizData = [
     text: 'What is the response to “Muli bwanji?”',
     questionAudio: '',
     choices: [
-      { text: 'Ndadzuka bwino kaya inu?',    audio: '', correct: false },
-      { text: 'Ndili bwino kaya inu?',      audio: '', correct: true },
-      { text: 'Ndaswera bwino kaya inu?',    audio: '', correct: false },
-      { text: 'Bo bo', audio: '', correct: false }
+      { text: 'Ndadzuka bwino kaya inu?',    audio: 'audios/ndadzuka_bwino.mp3', correct: false },
+      { text: 'Ndili bwino kaya inu?',      audio: 'audios/ndili_bwino.mp3', correct: true },
+      { text: 'Ndaswera bwino kaya inu?',    audio: 'audios/ndaswera_bwino.mp3', correct: false },
+      { text: 'Bo bo', audio: 'audios/bobo.mp3', correct: false }
     ]
   }
 ,
   {
     text: 'Mwadzuka bwanji? Means?',
-    questionAudio: '',
+    questionAudio: 'audios/mwadzuka_bwanji.mp3',
     choices: [
       { text: 'How did you eat?',      audio: '', correct: false },
       { text: 'How did you sleep?',    audio: '', correct: false },
@@ -47,27 +47,27 @@ const quizData = [
     text: 'How do you say “thank you”?',
     questionAudio: '',
     choices: [
-      { text: 'Chabwino',      audio: '', correct: false },
-      { text: 'Zikomo',    audio: '', correct: true },
-      { text: 'Pepani',    audio: '', correct: false },
+      { text: 'Chabwino',      audio: 'audios/chabwino.mp3', correct: false },
+      { text: 'Zikomo',    audio: 'audios/zikomo.mp3', correct: true },
+      { text: 'Pepani',    audio: 'audios/pepani.mp3', correct: false },
       { text: 'None of the above', audio: '', correct: false }
     ]
   }
 ,
   {
     text: 'What is the response to “Mwaswera bwanji”?',
-    questionAudio: '',
+    questionAudio: 'audios/mwaswera_bwanji.mp3',
     choices: [
-      { text: 'Ndili bwino kaya inu?',    audio: '', correct: false },
-      { text: 'Ndadzuka bwino kaya inu?',    audio: '', correct: false },
-      { text: 'Ndaswera bwanji, kaya inu?',      audio: '', correct: true },
-      { text: 'Ndagona bwino kaya inu?', audio: '', correct: false }
+      { text: 'Ndili bwino kaya inu?',    audio: 'audios/ndili_bwino.mp3', correct: false },
+      { text: 'Ndadzuka bwino kaya inu?',    audio: 'audios/ndadzuka_bwino.mp3', correct: false },
+      { text: 'Ndaswera bwino, kaya inu?',      audio: 'audios/ndaswera_bwino.mp3', correct: true },
+      { text: 'Ndagona bwino kaya inu?', audio: 'audios/ndagona_bwino.mp3', correct: false }
     ]
   }
 ,
   {
     text: 'Pepani means?',
-    questionAudio: '',
+    questionAudio: 'audios/pepani.mp3',
     choices: [
       { text: 'Sorry',      audio: '', correct: true },
       { text: 'Please',    audio: '', correct: false },
@@ -78,7 +78,7 @@ const quizData = [
 ,
   {
     text: 'When would you use Kodi?',
-    questionAudio: '',
+    questionAudio: 'audios/kodi.mp3',
     choices: [
       { text: 'When asking a question',      audio: '', correct: true },
       { text: 'When apologising',    audio: '', correct: false },
@@ -91,16 +91,16 @@ const quizData = [
     text: 'How do we say 10 in Chichewa?',
     questionAudio: '',
     choices: [
-      { text: 'Chimodzi',      audio: '', correct: false },
-      { text: 'Zisanu',    audio: '', correct: false },
-      { text: 'Khumi',    audio: '', correct: true },
-      { text: 'Zisanu ndi chimodzi', audio: '', correct: false }
+      { text: 'Chimodzi',      audio: 'audios/chimodzi.mp3', correct: false },
+      { text: 'Zisanu',    audio: 'audios/zisanu.mp3', correct: false },
+      { text: 'Khumi',    audio: 'audios/khumi.mp3', correct: true },
+      { text: 'Zisanu ndi chimodzi', audio: 'audios/zisanu_ndi_chimodzi.mp3', correct: false }
     ]
   }
 ,
   {
     text: 'How many objects are said to be zitatu?',
-    questionAudio: 'audio/q2.mp3',
+    questionAudio: 'audios/zitatu.mp3',
     choices: [
       { text: '1',      audio: '', correct: true },
       { text: '3',    audio: '', correct: false },
@@ -216,11 +216,12 @@ function loadQuestion(i) {
     // Update the score
     updateStatus();
     
-    //disable the submit after click
-    submitBtn.disabled = true; // Disable submit button
+
+
     
     // Disable all choices after submission
     choicesDiv.querySelectorAll('.choice-wrapper').forEach(w => w.classList.add('disabled'));  
+    submitBtn.disabled = true; // Disable submit button
     nextBtn.disabled = false; // Enable next button
   });
 

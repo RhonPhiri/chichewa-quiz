@@ -218,6 +218,7 @@ function loadQuestion(i) {
     // Disable all choices after submission
     choicesDiv.querySelectorAll('.choice-wrapper').forEach(w => w.classList.add('disabled'));
     submitBtn.disabled = true; // Disable submit button
+    choicesDiv.style.pointerEvents = 'none'; 
     nextBtn.disabled = false; // Enable next button
   });
 

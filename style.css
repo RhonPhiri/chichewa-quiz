@@ -20,6 +20,26 @@ body::before {
   z-index: -1;
 }
 
+/* Default (light theme) */
+body.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Dark theme */
+body.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* Theme toggle container */
+#theme-toggle-container {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+}
+
 .quiz-container {
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(4px);

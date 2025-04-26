@@ -40,6 +40,8 @@ function updateStatus() {
   scoreTxt.textContent = `Score: ${score}`;
 }
 
+let selectedChoiceIndex = null; // Track the selected choice
+
 // Render a question
 function loadQuestion(i) {
   updateStatus();
@@ -49,6 +51,7 @@ function loadQuestion(i) {
   feedbackEl.textContent = '';
   choicesDiv.innerHTML = '';
   nextBtn.disabled = true; // Disable next until answered
+  selectedChoiceIndex = null; // Reset selected choice
 
   q.choices.forEach((c, idx) => {
     // answer button
@@ -60,20 +63,12 @@ function loadQuestion(i) {
     const wrap = document.createElement('div');
     wrap.classList.add('choice-wrapper');
 
-    btn.addEventListener('click', () => {
-      // if correct, increment score
-      if (c.correct) {
-        score++;
-      }
-      // highlight all
-      q.choices.forEach((opt, j) => {
-        const w = choicesDiv.children[j];
-        w.classList.toggle('correct-answer', opt.correct);
-        w.classList.toggle('wrong-answer', !opt.correct);
-      });
-      updateStatus();
-      choicesDiv.querySelectorAll('.answer-btn').forEach(b => b.disabled = true);
-      nextBtn.disabled = false; // Enable next button
+    // Handle selection
+    wrap.addEventListener('click', () => {
+      // Remove previous selection
+      document.querySelectorAll('.choice-wrapper').forEach(w => w.classList.remove('selected'));
+      wrap.classList.add('selected');
+      selectedChoiceIndex = idx; // Store selected choice index
     });
 
     // audio play button
@@ -88,6 +83,36 @@ function loadQuestion(i) {
     wrap.appendChild(playA);
     choicesDiv.appendChild(wrap);
   });
+
+  // Add a submit button
+  const submitBtn = document.createElement('button');
+  submitBtn.textContent = 'Submit';
+  submitBtn.id = 'submit-button';
+  submitBtn.disabled = true; // Initially disabled
+
+  // Enable submit button when a choice is selected
+  choicesDiv.addEventListener('click', () => {
+    if (selectedChoiceIndex !== null) {
+      submitBtn.disabled = false;
+    }
+  });
+
+  // Handle submission
+  submitBtn.addEventListener('click', () => {
+    const q = quizData[currentIndex];
+    q.choices.forEach((opt, j) => {
+      const w = choicesDiv.children[j];
+      w.classList.toggle('correct-answer', opt.correct);
+      w.classList.toggle('wrong-answer', !opt.correct);
+    });
+
+    // Disable all choices after submission
+    choicesDiv.querySelectorAll('.choice-wrapper').forEach(w => w.classList.add('disabled'));
+    submitBtn.disabled = true; // Disable submit button
+    nextBtn.disabled = false; // Enable next button
+  });
+
+  choicesDiv.appendChild(submitBtn);
 }
 
 // Initial load & event hooks

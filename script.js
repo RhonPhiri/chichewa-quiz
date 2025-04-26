@@ -215,10 +215,12 @@ function loadQuestion(i) {
 
     // Update the score
     updateStatus();
-
-    // Disable all choices after submission
-    choicesDiv.querySelectorAll('.choice-wrapper').forEach(w => w.classList.add('disabled'));
+    
+    //disable the submit after click
     submitBtn.disabled = true; // Disable submit button
+    
+    // Disable all choices after submission
+    choicesDiv.querySelectorAll('.choice-wrapper').forEach(w => w.classList.add('disabled'));  
     nextBtn.disabled = false; // Enable next button
   });
 

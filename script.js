@@ -106,6 +106,14 @@ function loadQuestion(i) {
       w.classList.toggle('wrong-answer', !opt.correct);
     });
 
+    //check if selected choice is correct
+    if(q.choices[selectedChoiceIndex].correct){
+      score++;//increment the score
+    }
+
+    //update the score
+    updateStatus();
+
     // Disable all choices after submission
     choicesDiv.querySelectorAll('.choice-wrapper').forEach(w => w.classList.add('disabled'));
     submitBtn.disabled = true; // Disable submit button

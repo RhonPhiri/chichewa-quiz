@@ -135,6 +135,7 @@ let selectedChoiceIndex = null; // Track the selected choice
 // Render a question
 function loadQuestion(i) {
   updateStatus();
+  choicesDiv.style.pointerEvents = 'auto'; // 🔥 Allow clicking again
   const q = quizData[i];
   questionEl.textContent = q.text;
 
@@ -214,11 +215,13 @@ function loadQuestion(i) {
 
     // Update the score
     updateStatus();
+    
 
+
+    
     // Disable all choices after submission
-    choicesDiv.querySelectorAll('.choice-wrapper').forEach(w => w.classList.add('disabled'));
+    choicesDiv.querySelectorAll('.choice-wrapper').forEach(w => w.classList.add('disabled'));  
     submitBtn.disabled = true; // Disable submit button
-    // choicesDiv.style.pointerEvents = 'none';
     nextBtn.disabled = false; // Enable next button
   });
 

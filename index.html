@@ -7,18 +7,21 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="quiz-container">
-    <h1>Chichewa Basics Quiz</h1>
 
-    <!--Toggle theme mode-->
-    <div id="theme-toggle-container">
-      <label for="theme-select">Theme:</label>
-      <select id="theme-select">
-        <option value="system">System</option>
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-      </select>
-    </div>
+
+  <div class="quiz-container">
+
+        <!--Toggle theme mode-->
+        <div id="theme-toggle-container">
+          <label for="theme-select">Theme:</label>
+          <select id="theme-select">
+            <option value="system">System</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </div>
+
+    <h1>Chichewa Basics Quiz</h1>
 
     <!-- Status bar: progress and score -->
     <div id="status-bar">
@@ -34,10 +37,19 @@
       <div id="choices"></div>
     </div>
 
+    <div id="about-info-container" style="display: none;">
+      <button id="about-info-button">About Info</button>
+      <p id="about-info-text" style="display: none;">
+        This simple web was produced by Rhon Phiri, designed by Vincent Chilemba & brought about by ChatGPT.
+      </p>
+    </div>
+
     <!-- Feedback and navigation -->
     <div id="feedback"></div>
     <button id="next-question" disabled>Next Question →</button>
   </div>
+
+
 
   <script src="script.js"></script>
 </body>

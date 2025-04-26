@@ -122,30 +122,7 @@ const nextBtn    = document.getElementById('next-question');
 const progTxt    = document.getElementById('progress-text');
 const scoreTxt   = document.getElementById('score-text');
 
-// Theme toggle logic
-const themeSelect = document.getElementById('theme-select');
 
-// Apply the selected theme
-function applyTheme(theme) {
-  if (theme === 'system') {
-    document.body.classList.remove('light', 'dark');
-  } else {
-    document.body.classList.remove('light', 'dark');
-    document.body.classList.add(theme);
-  }
-}
-
-// Load the saved theme or default to system
-const savedTheme = localStorage.getItem('theme') || 'system';
-themeSelect.value = savedTheme;
-applyTheme(savedTheme);
-
-// Handle theme change
-themeSelect.addEventListener('change', () => {
-  const selectedTheme = themeSelect.value;
-  localStorage.setItem('theme', selectedTheme);
-  applyTheme(selectedTheme);
-});
 
 // Update progress & score display
 function updateStatus() {

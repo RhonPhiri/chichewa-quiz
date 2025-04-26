@@ -135,6 +135,7 @@ let selectedChoiceIndex = null; // Track the selected choice
 // Render a question
 function loadQuestion(i) {
   updateStatus();
+  choicesDiv.style.pointerEvents = 'auto'; // 🔥 Allow clicking again
   const q = quizData[i];
   questionEl.textContent = q.text;
 

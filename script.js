@@ -102,8 +102,8 @@ const quizData = [
     text: 'How many objects are said to be zitatu?',
     questionAudio: 'audios/zitatu.mp3',
     choices: [
-      { text: '1',      audio: '', correct: true },
-      { text: '3',    audio: '', correct: false },
+      { text: '1',      audio: '', correct: false },
+      { text: '3',    audio: '', correct: true },
       { text: '5',    audio: '', correct: false },
       { text: '7', audio: '', correct: false }
     ]

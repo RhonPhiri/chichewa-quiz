@@ -8,8 +8,19 @@
 </head>
 <body>
 
+  <header>
+    <button id="home-button" style="display: none;">🏠 Home</button>
+  </header>
 
-  <div class="quiz-container">
+  <div id="welcome-screen">
+    <h1>Welcome to the Chichewa Quiz</h1>
+    <ul id="lesson-list">
+      <li><button class="lesson-button" data-lesson="lesson1">Lesson 1</button></li>
+      <li><button class="lesson-button" data-lesson="lesson2">Lesson 2</button></li>
+    </ul>
+  </div>
+
+  <div class="quiz-container" style="display: none;">
 
     <h1>Chichewa Basics Quiz</h1>
 
@@ -43,5 +54,6 @@
 
 
   <script src="script.js"></script>
+
 </body>
 </html>

@@ -112,13 +112,40 @@ const lessonData = {
   ],
   lesson2: [
     {
-      text: 'Question for lesson 2?',
+      text: 'How do you ask "what is your name"?',
       questionAudio: '',
       choices: [
-        { text: 'Zikomo', audio: 'audios/zikomo.mp3', correct: false },
-        { text: 'Moni', audio: 'audios/moni.mp3', correct: true },
-        { text: 'Pepani', audio: 'audios/pepani.mp3', correct: false },
-        { text: 'Muli bwanji?', audio: 'audios/muli_bwanji.mp3', correct: false }
+        { text: 'Muli bwanji', audio: 'audios/muli_bwanji.mp3', correct: false },
+        { text: 'Moni', audio: 'audios/moni.mp3', correct: false },
+        { text: 'Dzina lanu ndi ndani?', audio: 'audios/dzina_lanu.mp3', correct: true },
+        { text: 'Mumakhala kuti?', audio: 'audios/mumakhala_kuti.mp3', correct: false }
+      ]
+    }, {
+      text: 'What day of the week is lachitatu??',
+      questionAudio: 'audios/lachitatu.mp3',
+      choices: [
+        { text: 'Monday', audio: '', correct: false },
+        { text: 'Tuesday', audio: '', correct: false },
+        { text: 'Wednesday', audio: '', correct: true },
+        { text: 'Thursday', audio: '', correct: false }
+      ]
+    }, {
+      text: 'What is Sunday in Chichewa',
+      questionAudio: '',
+      choices: [
+        { text: 'Lolemba', audio: 'audios/lolemba.mp3', correct: false },
+        { text: 'Lachitatu', audio: 'audios/lachitatu.mp3', correct: false },
+        { text: 'Loweluka', audio: 'audios/loweluka.mp3', correct: false },
+        { text: 'Lamulungu', audio: 'audios/lamulungu.mp3', correct: true }
+      ]
+    },{
+      text: 'What is the meaning of this question "Mumachokela kuti?"',
+      questionAudio: 'audios/mumachokela_kuti.mp3',
+      choices: [
+        { text: 'What is your name?', audio: '', correct: false },
+        { text: 'Where are you from?', audio: '', correct: true },
+        { text: 'Where do you work?', audio: '', correct: false },
+        { text: 'How old are you?', audio: '', correct: false }
       ]
     }
   ]
@@ -316,6 +343,7 @@ nextBtn.addEventListener('click', () => {
       nextBtn.disabled = false;
       loadQuestion(currentIndex);
       restartBtn.remove();
+      aboutInfoContainer.style.display = 'none'; // Hide the about button when restarting the quiz
     });
     feedbackEl.appendChild(restartBtn);
   }

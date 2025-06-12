@@ -1,59 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chichewa Quiz</title>
-  <link rel="stylesheet" href="style.css">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="m2m_chichewa_quiz">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>m2m_chichewa_quiz</title>
+  <link rel="manifest" href="manifest.json">
 </head>
 <body>
-
-  <header>
-    <button id="home-button" style="display: none;">🏠 Home</button>
-  </header>
-
-  <div id="welcome-screen">
-    <h1>Welcome to the Chichewa Quiz</h1>
-    <ul id="lesson-list">
-      <li><button class="lesson-button" data-lesson="lesson1">Lesson 1</button></li>
-      <li><button class="lesson-button" data-lesson="lesson2">Lesson 2</button></li>
-    </ul>
-  </div>
-
-  <div class="quiz-container" style="display: none;">
-
-    <h1>Chichewa Basics Quiz</h1>
-
-    <!-- Status bar: progress and score -->
-    <div id="status-bar">
-      <span id="progress-text"></span>
-      <span id="score-text"></span>
-    </div>
-
-    <!-- Question and choices -->
-    <div id="question-block">
-      <p id="question-text" class="question-text"></p>
-      <button id="play-question">🔊 Play Question</button>
-      <audio id="audio-question"></audio>
-      <div id="choices"></div>
-    </div>
-
-    <div id="about-info-container" style="display: none;">
-      <button id="about-info-button">About Info</button>
-      <p id="about-info-text" style="display: none;">
-        This simple webpage was produced by Rhon Phiri, designed by Vincent Chilemba & brought about by ChatGPT and copilot.
-        Intended to provide a simple platform to practice the basics of Chichewa taught by Medic To Medic Chichewa Tutors
-      </p>
-    </div>
-
-    <!-- Feedback and navigation -->
-    <div id="feedback"></div>
-    <button id="next-question" disabled>Next Question →</button>
-  </div>
-
-
-
-  <script src="script.js"></script>
-
+  <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
